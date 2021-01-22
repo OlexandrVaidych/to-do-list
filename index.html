@@ -16,7 +16,64 @@
         </ul>
 
     </nav>
+
+    <div id="formLogin" class="modal">
+
+        <form class="form login animate">
+            <div class="close">
+                <span id="closeLogin" class="el-close" title="Close Modal">&times;</span>
+            </div>
+
+            <h1>Login</h1>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+                <button type="submit">Login</button>
+            </div>
+
+            <div class="container cancel">
+                <button type="button" id="btnCancelLogin" class="btn-cancel">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="formRegister" class="modal">
+
+        <form class="form register animate">
+            <div class="close">
+                <span id="closeRegister" class="el-close" title="Close Modal">&times;</span>
+            </div>
+            <h1>Sign Up</h1>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" id="registerName" required>
+
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Enter Email" name="email" id="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" id="registerPsw" required>
+
+                <label for="confirmPsw"><b>Confirm Password</b></label>
+                <input type="password" placeholder="Enter Password Again" name="confirmPsw" id="confirmPsw" required>
+
+                <button type="submit">Sign Up</button>
+            </div>
+
+            <div class="container cancel">
+                <button type="button" id="btnCancelRegister" class="btn-cancel">Cancel</button>
+            </div>
+        </form>
+    </div>
 </div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
