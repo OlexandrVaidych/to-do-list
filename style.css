@@ -5,9 +5,16 @@
     list-style: none;
     box-sizing: border-box;
 }
+
+:root {
+    --success-color: #4CAF50;
+    --error-color: #f44336;
+}
+
 html{
     height: 100%;
 }
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
@@ -26,6 +33,7 @@ label.logo{
     line-height: 70px;
     padding: 0 60px;
     font-weight: bold;
+    display: inline;
 }
 
 nav ul{
@@ -40,7 +48,7 @@ nav ul li{
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: var(--success-color);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -76,6 +84,10 @@ button {
     padding-top: 60px;
 }
 
+.modal.reg{
+    padding-top: 20px;
+}
+
 /* Modal Content/Box */
 .form {
     background-color: #fefefe;
@@ -93,6 +105,11 @@ button {
 
 .container {
     padding: 13px;
+}
+
+.form-control{
+    position: relative;
+    margin-bottom: 25px;
 }
 
 .cancel{
@@ -121,16 +138,15 @@ h1{
     margin-bottom: 0;
 }
 
-.container {
-    padding: 12px;
+label{
+    display: block;
 }
-
 /* Full-width input fields */
 input[type=text], input[type=password], input[type=email] {
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
+    margin-top: 1px;
+    display: block;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
@@ -138,7 +154,7 @@ input[type=text], input[type=password], input[type=email] {
 /* Extra styles for the cancel button */
 .btn-cancel {
     margin: 0;
-    background-color: #f44336;
+    background-color: var(--error-color);
 }
 
 button:hover {
@@ -147,7 +163,7 @@ button:hover {
 
 .el-close:hover,
 .el-close:focus {
-    color: red;
+    color: var(--error-color);
     cursor: pointer;
 }
 
@@ -159,4 +175,22 @@ button:hover {
 @keyframes animatezoom {
     from {transform: scale(0)}
     to {transform: scale(1)}
+}
+
+small{
+    color: var(--error-color);
+    position: absolute;
+    visibility: hidden;
+}
+
+.form-control.success input {
+    border: 2px solid var(--success-color);
+}
+
+.form-control.error input {
+    border: 2px solid var(--error-color);
+}
+
+.form-control.error small {
+    visibility: visible;
 }

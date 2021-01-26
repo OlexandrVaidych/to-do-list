@@ -27,11 +27,17 @@
             <h1>Login</h1>
 
             <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+                <div class="form-control">
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" id="email">
+                    <small>Error message</small>
+                </div>
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                <div class="form-control">
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" id="password">
+                    <small>Error message</small>
+                </div>
 
                 <button type="submit">Login</button>
             </div>
@@ -42,7 +48,7 @@
         </form>
     </div>
 
-    <div id="formRegister" class="modal">
+    <div id="formRegister" class="modal reg">
 
         <form class="form register animate">
             <div class="close">
@@ -50,18 +56,30 @@
             </div>
             <h1>Sign Up</h1>
 
-            <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" id="registerName" required>
+            <div id="container" class="container">
+                <div class="form-control">
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" id="username">
+                    <small>Error message</small>
+                </div>
 
-                <label for="email"><b>Email</b></label>
-                <input type="email" placeholder="Enter Email" name="email" id="email" required>
+                <div class="form-control">
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" id="regEmail">
+                    <small>Error message</small>
+                </div>
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" id="registerPsw" required>
+                <div class="form-control">
+                    <label for="regPassword"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="regPassword" id="regPassword">
+                    <small>Error message</small>
+                </div>
 
-                <label for="confirmPsw"><b>Confirm Password</b></label>
-                <input type="password" placeholder="Enter Password Again" name="confirmPsw" id="confirmPsw" required>
+                <div class="form-control">
+                    <label for="confirmPassword"><b>Confirm Password</b></label>
+                    <input type="password" placeholder="Enter Password Again" name="confirmPassword" id="confirmPassword">
+                    <small>Error message</small>
+                </div>
 
                 <button type="submit">Sign Up</button>
             </div>
