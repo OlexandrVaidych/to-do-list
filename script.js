@@ -76,6 +76,7 @@ function checkRequired(inputArr) {
 
 // Check input length
 function checkLength(input, min, max) {
+    let isRequired = false;
     if (input.value.length < min) {
         showError(
             input,
@@ -88,7 +89,9 @@ function checkLength(input, min, max) {
         );
     } else {
         showSuccess(input);
+        isRequired = true;
     }
+    return isRequired;
 }
 
 // Check the username field for all letters
@@ -109,19 +112,25 @@ function checkAllLetters(input) {
 
 // Check email is valid
 function checkEmail(input) {
+    let isRequired = false;
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (emailPattern.test(input.value.trim())) {
         showSuccess(input);
+        isRequired = true;
     } else {
         showError(input, `${getFieldName(input)} is not valid`);
     }
+    return isRequired;
 }
 
 // Check passwords match
 function checkPasswordsMatch(input1, input2) {
+    let isRequired = true;
     if (input1.value !== input2.value) {
         showError(input2, 'Passwords do not match');
+        isRequired = false;
     }
+    return isRequired;
 }
 
 btnLogin.addEventListener("click", showLoginForm);
@@ -134,23 +143,23 @@ btnCancelRegister.addEventListener("click", closeRegisterForm);
 
 // Event listeners
 formRegister.addEventListener('submit', function(e) {
-    e.preventDefault();
-
     if(!checkRequired([username, regEmail, regPassword, confirmPassword])){
-        if(checkAllLetters(username)){
-            checkLength(username, 3, 15);
+        if( (!checkAllLetters(username) || !checkLength(username, 3, 15)) || !checkEmail(regEmail)
+        || !checkLength(regPassword, 6, 25) || !checkPasswordsMatch(regPassword, confirmPassword)){
+                e.preventDefault();
         }
-        checkLength(regPassword, 6, 25);
-        checkEmail(regEmail);
-        checkPasswordsMatch(regPassword, confirmPassword);
+    }else{
+        e.preventDefault();
     }
 });
 
 formLogin.addEventListener('submit', function(e) {
-    e.preventDefault();
-
     if(!checkRequired([email, password])){
-        checkEmail(email);
-        checkLength(password, 6, 25);
+        if(!checkEmail(email) || !checkLength(password, 6, 25)){
+            e.preventDefault();
+        }
+    }
+    else{
+        e.preventDefault();
     }
 });
